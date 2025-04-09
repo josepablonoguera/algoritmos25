@@ -10,15 +10,17 @@ package tiendaonline.linkedlist;
  */
 public class Lista {
 
-    NodoCliente primero;
+    NodoCliente cabeza;
+    NodoCliente ultimo;
 
     public Lista() {
-        this.primero = null;
+        this.cabeza = null;
+        this.ultimo = null;
     }
 
     public boolean estaVacia() {
 
-        if (primero == null) {
+        if (cabeza == null) {
             return true;
         }
         return false;
@@ -28,14 +30,15 @@ public class Lista {
 
         if (estaVacia()) {
 
-            nodoNuevo.sig = primero;
-            primero = nodoNuevo;
+            nodoNuevo.sig = cabeza;
+            cabeza = nodoNuevo;
+            ultimo = nodoNuevo;
 
             System.out.println(nodoNuevo.getName() + " es el primero en ingresar en la lista");
 
         } else {
-            nodoNuevo.sig = primero;
-            primero = nodoNuevo;
+            nodoNuevo.sig = cabeza;
+            cabeza = nodoNuevo;
         }
 
     }
@@ -44,9 +47,10 @@ public class Lista {
 
         if (estaVacia()) {
             System.out.println("Lista Vacia");
+            return;
         }
 
-        NodoCliente aux = primero;
+        NodoCliente aux = cabeza;
 
         while (aux != null) {
             System.out.println(aux.getName());
@@ -55,24 +59,24 @@ public class Lista {
         }
 
     }
-    
+
     public void insertarFinal(NodoCliente nodoNuevo) {
 
         if (estaVacia()) {
-
-            nodoNuevo.sig = primero;
-            primero = nodoNuevo;
-
             
+            
+            cabeza = nodoNuevo;
+            ultimo = nodoNuevo;
+            
+        } else if (cabeza == ultimo) {
 
-        } 
-        NodoCliente aux = primero;
-          while (aux != null) {
-              if (aux.sig == null) {
-                  aux.sig=nodoNuevo;
-                  return;
-              }
-            aux = aux.sig;
+            cabeza.sig = nodoNuevo;
+
+            ultimo = nodoNuevo;
+
+        } else {
+            ultimo.sig = nodoNuevo;
+            ultimo = nodoNuevo;
 
         }
 

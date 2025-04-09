@@ -21,7 +21,7 @@ public class Principal {
         lista.insertarFinal(new NodoCliente("3", "Pedro", "correo@correo.com"));
         lista.insertarFinal(new NodoCliente("4", "Mateo", "correo@correo.com"));
         lista.insertarFinal(new NodoCliente("5", "Camila", "correo@correo.com"));
-        lista.insertarInicio(new NodoCliente("6", "Karina", "correo@correo.com"));
+//        lista.insertarInicio(new NodoCliente("6", "Karina", "correo@correo.com"));
 
         lista.mostrarLista();
 
