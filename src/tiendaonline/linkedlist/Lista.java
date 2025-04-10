@@ -63,11 +63,10 @@ public class Lista {
     public void insertarFinal(NodoCliente nodoNuevo) {
 
         if (estaVacia()) {
-            
-            
+
             cabeza = nodoNuevo;
             ultimo = nodoNuevo;
-            
+
         } else if (cabeza == ultimo) {
 
             cabeza.sig = nodoNuevo;
@@ -80,6 +79,99 @@ public class Lista {
 
         }
 
+    }
+
+    public void insertarOrdenadoId(NodoCliente nodoNuevo) {
+
+        if (estaVacia()) {
+
+            cabeza = nodoNuevo;
+            ultimo = nodoNuevo;
+        } else {
+
+            if (cabeza == ultimo) {// caso cuando ya existe un nodo en la lista y vamos a insertar el segundo nodo
+
+                if (nodoNuevo.getId() > cabeza.getId()) {
+                    insertarFinal(nodoNuevo);
+                } else if (nodoNuevo.getId() < cabeza.getId()) {
+                    insertarInicio(nodoNuevo);
+                } else {
+
+                    System.out.println("Ya existe el Id= " + nodoNuevo.getId() + " en la cabeza de la lista");
+                    return;
+                }
+
+            } else {
+
+                boolean bandera = esPosible(nodoNuevo);
+                
+                
+                if (cabeza.getId() > nodoNuevo.getId()) {
+                    insertarInicio(nodoNuevo);
+                    return;
+                }
+                
+                
+
+                if (bandera) {
+                    
+                    NodoCliente aux1 = cabeza;
+                    NodoCliente aux2 = cabeza.sig;
+                    int idNuevo = nodoNuevo.getId();
+                    while (aux1 != null) {
+
+                        if (idNuevo > aux1.getId() && idNuevo < aux2.getId()) {
+                            aux1.sig = nodoNuevo;
+                            nodoNuevo.sig = aux2;
+                            return;
+                        }
+
+                        aux1 = aux1.sig;
+                        aux2 = aux2.sig;
+                        
+                        if (aux2 == null) {
+                            aux2 = aux1;
+                            if (aux1.getId() < nodoNuevo.getId()) {
+                                aux1.sig = nodoNuevo;
+                                return;
+                            }
+                        }
+
+                    }
+
+                } else {
+                    System.out.println("No es posible la insercion por que ya existe el id");
+                }
+
+            }
+
+        }
+
+    }
+
+    private boolean esPosible(NodoCliente nodoNuevo) {
+
+        boolean band = false;
+        NodoCliente aux1 = cabeza;
+        NodoCliente aux2 = cabeza.sig;
+        int idNuevo = nodoNuevo.getId();
+
+        while (aux1 != null) {
+
+            if (idNuevo > aux1.getId() && idNuevo < aux2.getId()) {
+                return true;
+            }
+            aux1 = aux1.sig;
+            aux2 = aux2.sig;
+
+            if (aux2 == null) {
+                aux2 = aux1;
+                return true;
+            }
+
+        }
+
+        return band;
     }
 
 }

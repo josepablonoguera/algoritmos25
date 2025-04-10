@@ -10,14 +10,14 @@ package tiendaonline.linkedlist;
  */
 public class NodoCliente {
 
-    private String id;
+    private int id;
     private String name;
     private String correo;
 
     // puntero
     NodoCliente sig;
 
-    public NodoCliente(String id, String name, String correo) {
+    public NodoCliente(int id, String name, String correo) {
         this.id = id;
         this.name = name;
         this.correo = correo;
@@ -27,14 +27,14 @@ public class NodoCliente {
     /**
      * @return the id
      */
-    public String getId() {
+    public int getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
