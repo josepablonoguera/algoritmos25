@@ -15,7 +15,7 @@ public class NodoCliente {
     private String correo;
 
     // puntero
-    NodoCliente sig;
+    NodoCliente sig;  
 
     public NodoCliente(int id, String name, String correo) {
         this.id = id;

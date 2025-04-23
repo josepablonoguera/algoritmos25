@@ -53,7 +53,7 @@ public class Lista {
         NodoCliente aux = cabeza;
 
         while (aux != null) {
-            System.out.println(aux.getName());
+            System.out.println(aux.toString());
             aux = aux.sig;
 
         }
@@ -104,17 +104,17 @@ public class Lista {
             } else {
 
                 boolean bandera = esPosible(nodoNuevo);
-                
-                
+
                 if (cabeza.getId() > nodoNuevo.getId()) {
                     insertarInicio(nodoNuevo);
                     return;
+                } else if (cabeza.getId() == nodoNuevo.getId()) {
+                    System.out.println("Id repetido");
+                    return;
                 }
-                
-                
 
                 if (bandera) {
-                    
+
                     NodoCliente aux1 = cabeza;
                     NodoCliente aux2 = cabeza.sig;
                     int idNuevo = nodoNuevo.getId();
@@ -128,13 +128,11 @@ public class Lista {
 
                         aux1 = aux1.sig;
                         aux2 = aux2.sig;
-                        
+
                         if (aux2 == null) {
-                            aux2 = aux1;
-                            if (aux1.getId() < nodoNuevo.getId()) {
-                                aux1.sig = nodoNuevo;
-                                return;
-                            }
+                            aux1.sig = nodoNuevo;
+                            return;
+
                         }
 
                     }
@@ -160,6 +158,8 @@ public class Lista {
 
             if (idNuevo > aux1.getId() && idNuevo < aux2.getId()) {
                 return true;
+            } else if (idNuevo == aux1.getId() || idNuevo == aux2.getId()) {
+                return false;
             }
             aux1 = aux1.sig;
             aux2 = aux2.sig;
