@@ -48,10 +48,7 @@ public class Celda {
         this.simbolo = simbolo;
     }
 
-    @Override
-    public String toString() {
-        return "Celda{" + "simbolo=" + simbolo + ", izquierda=" + izquierda + ", arriba=" + arriba + ", abajo=" + abajo + ", derecha=" + derecha + ", diagIzqAbajo=" + diagIzqAbajo + ", diagIzArriba=" + diagIzArriba + ", diagDerAbajo=" + diagDerAbajo + ", diagDerArriba=" + diagDerArriba + '}';
-    }
+  
 
     /**
      * @return the id

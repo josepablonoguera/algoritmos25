@@ -4,6 +4,8 @@
  */
 package listaenlazadas;
 
+import java.io.IOException;
+
 /**
  *
  * @author pablonoguera
@@ -13,9 +15,8 @@ public class Gato {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        GatoNodo juegoGato = new GatoNodo();
-        
+    public static void main(String[] args) throws IOException {
+        GatoNodo juegoGato = new GatoNodo();        
        
     }
     
